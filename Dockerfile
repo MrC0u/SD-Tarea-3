@@ -32,7 +32,7 @@ COPY core-site.xml $HADOOP_HOME/etc/hadoop/
 COPY hdfs-site.xml $HADOOP_HOME/etc/hadoop/
 COPY yarn-site.xml $HADOOP_HOME/etc/hadoop/
 
-COPY docker-entrypoint.sh $HADOOP_HOME/etc/hadoop/
+COPY ./docker-entrypoint.sh $HADOOP_HOME/etc/hadoop/
 
 ENV PATH $PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
 
