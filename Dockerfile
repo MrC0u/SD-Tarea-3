@@ -32,7 +32,7 @@ COPY core-site.xml $HADOOP_HOME/etc/hadoop/
 COPY hdfs-site.xml $HADOOP_HOME/etc/hadoop/
 COPY yarn-site.xml $HADOOP_HOME/etc/hadoop/
 
-COPY ./docker-entrypoint.sh $HADOOP_HOME/etc/hadoop/
+COPY docker-entrypoint.sh $HADOOP_HOME/etc/hadoop/
 
 ENV PATH $PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
 
@@ -46,5 +46,11 @@ WORKDIR /home/hduser
 
 # YARNSTART=0 will prevent yarn scheduler from being launched
 ENV YARNSTART 0
+
+RUN ["sudo","chmod", "+x", "/usr/local/bin/docker-entrypoint.sh"]
+
+RUN ["sudo","chmod", "+x", "/home/hduser/examples/mapper.py"]
+RUN ["sudo","chmod", "+x", "/home/hduser/examples/reducer.py"]
+
 
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]

@@ -11,23 +11,23 @@ word = None
 
 for line in sys.stdin:
     line = line.strip()
-    word, doc = line.split('\t',1)
-    count = 1
+    word, doc ,count = line.split('\t')
 
     try:
         doc = int(doc)
+        count = int(count)
     except ValueError:
         continue
+
     if current_word == word:
         if current_doc == doc:
-            amount[current] = ('('+str(current_count)+','+ str(current_doc) +')')
             current_count += count
+            amount[current] = ('('+str(current_count)+','+ str(current_doc) +')')
         else:
             current_doc = doc
             current_count = count
             current += 1
             amount.append('('+str(current_count)+','+ str(current_doc) +')')
-            current_count += 1
     else:
         if current_word:
             print('{}\t{}'.format(current_word,amount))
@@ -38,7 +38,3 @@ for line in sys.stdin:
         amount = []
         amount.append('('+str(current_count)+','+ str(current_doc) +')')
         #print(amount)
-
-
-if current_word == word:
-    print('{}\t{}'.format(current_word,current_count))

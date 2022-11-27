@@ -4,16 +4,20 @@
 import sys
 import re
 
-aux = 1
+arr = []
+doc = 0
+aux = 0
 
 for line in sys.stdin:
     line = re.sub(r'\W+',' ',line.strip())
+    line = line.lower()
     words = line.split()
-
     
     for word in words:
-        if word == 'DocumentEnd':
-            aux += 1
-            continue
-        print('{}\t{}'.format(word,aux))
+        if word.find("documentbegin") != -1:
+            doc , aux = word.split('documentbegin')
+        arr.append('{}\t{}\t{}'.format(word,doc,1))
+
+for out in sorted(arr):
+    print(out)
 
