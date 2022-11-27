@@ -52,8 +52,4 @@ RUN ["sudo","chmod", "+x", "/usr/local/bin/docker-entrypoint.sh"]
 RUN ["sudo","chmod", "+x", "/home/hduser/examples/mapper.py"]
 RUN ["sudo","chmod", "+x", "/home/hduser/examples/reducer.py"]
 
-RUN ["hdfs", "dfs", "-mkdir", "/user"]
-RUN ["hdfs", "dfs", "-mkdir", "/user/hduser"]
-RUN ["hdfs", "dfs", "-mkdir", "/input"]
-
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
