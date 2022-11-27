@@ -1,2 +1,2 @@
 # SD-Tarea-3
-aprende oe x2
+Vídeo explicativo: https://youtu.be/AYM--7cPCuU
